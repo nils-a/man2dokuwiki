@@ -8,7 +8,7 @@
 
 from sys import argv,stderr,stdout
 
-debug = True
+debug = False
 
 def WikiSave(text):
 	if text.startswith('"') and text.endswith('"'):
