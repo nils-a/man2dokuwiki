@@ -27,7 +27,10 @@ def ParseLines(stack):
 			line = line[4:]
 			if debug:
 				stderr.write('- Parsed as title: >%s<\n' % line)
-			(title, section, _) = line.split(' ', 2)
+			if line.count(' ') > 1:
+				(title, section, _) = line.split(' ', 2)
+			else:
+				(title, section) = line.split(' ', 2)
 			stdout.write(' ====== %s (%s) ======\n' % (WikiSave(title), section))
 		elif line.startswith('.SH'):
 			# Set up an unnumbered section heading
