@@ -83,6 +83,8 @@ def ParseLines(stack):
 			stdout.write('[[%s]] ' % WikiSave(line))			
 		elif line.strip() == '':
 			stdout.write('\n')
+		elif line.startswith('\\"') or line.startswith('.\\"'):
+			pass # comment (resulting in a new line) and hacked comment (no new line)
 		elif not line.startswith('.'):
 			stdout.write('%s\n' % WikiSave(line))
 		else:
