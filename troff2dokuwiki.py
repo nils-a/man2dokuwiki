@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 # -*- Encoding: UTF-8 -*-
 #Trying to make a nice DokuWiki page from 
 # a man-page.
