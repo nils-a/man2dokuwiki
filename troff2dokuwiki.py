@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 # -*- Encoding: UTF-8 -*-
 #Trying to make a nice DokuWiki page from 
 # a man-page.
@@ -27,7 +27,10 @@ def ParseLines(stack):
 			line = line[4:]
 			if debug:
 				stderr.write('- Parsed as title: >%s<\n' % line)
-			(title, section, _) = line.split(' ', 2)
+			if line.count(' ') > 1:
+				(title, section, _) = line.split(' ', 2)
+			else:
+				(title, section) = line.split(' ', 2)
 			stdout.write(' ====== %s (%s) ======\n' % (WikiSave(title), section))
 		elif line.startswith('.SH'):
 			# Set up an unnumbered section heading
@@ -80,6 +83,8 @@ def ParseLines(stack):
 			stdout.write('[[%s]] ' % WikiSave(line))			
 		elif line.strip() == '':
 			stdout.write('\n')
+		elif line.startswith('\\"') or line.startswith('.\\"'):
+			pass # comment (resulting in a new line) and hacked comment (no new line)
 		elif not line.startswith('.'):
 			stdout.write('%s\n' % WikiSave(line))
 		else:
