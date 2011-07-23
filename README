@@ -1,4 +1,5 @@
 This is a small Project to convert a man page to dokuwiki syntax.
-Currently it is able to parse the man page from xfreerdp (see http://www.freerdp.com/)
+Currently it is able to parse the man page from xfreerdp (see http://www.freerdp.com/) and
+GemRB (http://www.gemrb.org).
 
 Nils Andresen Okt. 2010 nils@nils-andresen.de
